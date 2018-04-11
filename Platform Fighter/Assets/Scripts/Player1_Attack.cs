@@ -81,6 +81,11 @@ public class Player1_Attack : MonoBehaviour {
 		if (col.gameObject.layer == 10) {
 			Player2Controller P2 = col.gameObject.GetComponent<Player2Controller> ();
 			P2.hp -= 25;
+			Color temp = col.gameObject.GetComponentInChildren<Light> ().color;
+			temp.g -= .2f;
+			col.gameObject.GetComponentInChildren<Light> ().color = temp;
+			Light tempL = col.gameObject.GetComponentInChildren<Light>();
+			tempL.intensity -= .2f;
 			CameraShake CamShake = GameObject.Find ("Main Camera").GetComponent<CameraShake> ();
 			CamShake.PlayerShake (.5f);
 
@@ -90,9 +95,6 @@ public class Player1_Attack : MonoBehaviour {
 				AgentRespawn NewStat = Cam.gameObject.GetComponent<AgentRespawn> ();
 				NewStat.Agent1InHP += 5;
 				NewStat.Agent1dmg += 2;
-
-
-			
 			}
 		}
 		if (col.gameObject.tag == "Agent2") {

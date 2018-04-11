@@ -68,6 +68,11 @@ public class Agent2Controller : MonoBehaviour {
 		} else {
 			agent2.velocity = new Vector3 (-4, 0, 0);
 		}
+
+		if (hp < 5) {
+			GetComponentInChildren<ParticleSystem> ().Play ();
+		}
+
 		//Animation
 		if (Mathf.Abs(agent2.velocity.x) > 0) {
 			anim.SetBool ("isWalking", true);

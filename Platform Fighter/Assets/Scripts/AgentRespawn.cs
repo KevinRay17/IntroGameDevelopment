@@ -29,6 +29,16 @@ public class AgentRespawn : MonoBehaviour {
 		Agents2 = new List<GameObject> ();
 		
 	}
+
+	public int CastleLHealth()
+	{
+		return CastleL;
+	}
+	public int CastleRHealth()
+	{
+		return CastleR;
+	}
+
 	
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -76,6 +86,7 @@ public class AgentRespawn : MonoBehaviour {
 
 	}
 	public void DeleteAgent(GameObject A) {
+		A.GetComponentInChildren<ParticleSystem> ().Play ();
 		int loc = Agents1.FindIndex (x => x.name == A.name);
 		if (loc >= 0) {
 			Agents1.RemoveAt (loc);
