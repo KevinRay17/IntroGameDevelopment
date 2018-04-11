@@ -86,7 +86,6 @@ public class AgentRespawn : MonoBehaviour {
 
 	}
 	public void DeleteAgent(GameObject A) {
-		A.GetComponentInChildren<ParticleSystem> ().Play ();
 		int loc = Agents1.FindIndex (x => x.name == A.name);
 		if (loc >= 0) {
 			Agents1.RemoveAt (loc);

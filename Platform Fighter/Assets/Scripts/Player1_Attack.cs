@@ -81,9 +81,12 @@ public class Player1_Attack : MonoBehaviour {
 		if (col.gameObject.layer == 10) {
 			Player2Controller P2 = col.gameObject.GetComponent<Player2Controller> ();
 			P2.hp -= 25;
+
+			//Changes color based on attack
 			Color temp = col.gameObject.GetComponentInChildren<Light> ().color;
 			temp.g -= .2f;
-			col.gameObject.GetComponentInChildren<Light> ().color = temp;
+
+			//Changes intensity based on attack
 			Light tempL = col.gameObject.GetComponentInChildren<Light>();
 			tempL.intensity -= .2f;
 			CameraShake CamShake = GameObject.Find ("Main Camera").GetComponent<CameraShake> ();
