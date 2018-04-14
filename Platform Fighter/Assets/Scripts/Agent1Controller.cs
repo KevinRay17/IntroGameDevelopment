@@ -95,7 +95,8 @@ public class Agent1Controller : MonoBehaviour {
 		if (col.gameObject.tag == "CastleR") {
 			GameObject Cam = GameObject.Find ("Main Camera");
 			AgentRespawn CastleHP = Cam.gameObject.GetComponent<AgentRespawn> ();
-			CastleHP.CastleR -= 1; 
+			CastleHP.CastleR -= 1;
+            CastleHP.Reduce('R');
 			CameraShake CamShake = GameObject.Find ("Main Camera").GetComponent<CameraShake> ();
 			CamShake.MinorShake (.5f);
 			AgentRespawn AR = GameObject.Find ("Main Camera").GetComponent<AgentRespawn>();

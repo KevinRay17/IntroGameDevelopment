@@ -10,6 +10,8 @@ public class AgentRespawn : MonoBehaviour {
 
 	public int CastleL = 10;
 	public int CastleR = 10;
+    public GameObject CastleLeft;
+    public GameObject CastleRight;
  
 	public float spawnCD = 3;
 	public float timeUntilSpawn = 3;
@@ -96,4 +98,21 @@ public class AgentRespawn : MonoBehaviour {
 		}
 		Destroy (A);
 	}
+    public void Reduce(char castle)
+    {
+        if(castle == 'R')
+        {
+            Renderer rend = CastleLeft.GetComponent<Renderer>();
+            rend.material.shader = Shader.Find("Castle2");
+            Color temp = new Color(rend.material.color.r - .1f, 0, 0);
+            rend.material.SetColor("Castle2", temp);
+        }
+        if (castle == 'L')
+        {
+            Renderer rend = CastleLeft.GetComponent<Renderer>();
+            rend.material.shader = Shader.Find("Castle1");
+            Color temp = new Color(0, rend.material.color.g - .1f, 0);
+            rend.material.SetColor("Castle1", temp);
+        }
+    }
 }

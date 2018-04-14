@@ -89,8 +89,9 @@ public class Agent2Controller : MonoBehaviour {
 		if (col.gameObject.tag == "CastleL") {
 			GameObject Cam = GameObject.Find ("Main Camera");
 			AgentRespawn CastleHP = Cam.gameObject.GetComponent<AgentRespawn> ();
-			CastleHP.CastleL -= 1; 
-			CameraShake CamShake = GameObject.Find ("Main Camera").GetComponent<CameraShake> ();
+			CastleHP.CastleL -= 1;
+            CastleHP.Reduce('R');
+            CameraShake CamShake = GameObject.Find ("Main Camera").GetComponent<CameraShake> ();
 			CamShake.MinorShake (.5f);
 			AgentRespawn AR = GameObject.Find ("Main Camera").GetComponent<AgentRespawn>();
 			AR.DeleteAgent (gameObject);
